@@ -3,6 +3,7 @@ package com.Arjunagi.Employeeaddress11.controller;
 import com.Arjunagi.Employeeaddress11.models.Address;
 import com.Arjunagi.Employeeaddress11.models.Employee;
 import com.Arjunagi.Employeeaddress11.services.AddressServices;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class AddressController {
         return addressServices.getAddressById(id);
     }
     @PostMapping("/address")
-    public String addAddress(@RequestBody Address address){
+    public String addAddress(@RequestBody @Valid Address address){
         return addressServices.addAddress(address);
     }
     @PutMapping("/address/id/{id}")

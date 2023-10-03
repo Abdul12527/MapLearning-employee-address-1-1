@@ -3,6 +3,7 @@ package com.Arjunagi.Employeeaddress11.controller;
 import com.Arjunagi.Employeeaddress11.models.Address;
 import com.Arjunagi.Employeeaddress11.models.Employee;
 import com.Arjunagi.Employeeaddress11.services.EmployeeServices;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class EmployeeController {
         return employeeServices.getEmployeeById(id);
     }
     @PostMapping("/employee")
-    public String addEmployee(@RequestBody Employee employee){
+    public String addEmployee(@RequestBody @Valid Employee employee){
         return employeeServices.addEmployee(employee);
     }
     @PutMapping("/employee/id/{id}")
